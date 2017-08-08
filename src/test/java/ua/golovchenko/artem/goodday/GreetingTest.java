@@ -20,6 +20,11 @@ public class GreetingTest {
     private static final String GOOD_NIGHT = "Good night, World!"; // в 23:00 - 06:00
     private static final String UNKNOWN_TIME_OF_THE_DAY = "Hello!"; // в 23:00 - 06:00
 
+    private static final LocalTime morning = LocalTime.of(6,0,0);
+    private static final LocalTime evening = LocalTime.of(19,0,0);
+    private static final LocalTime day = LocalTime.of(15,0,0);
+    private static final LocalTime night = LocalTime.of(2,0,0);
+
     //private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
     //private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.US);
 
@@ -29,17 +34,9 @@ public class GreetingTest {
 
     @Test
     public void testGoodMorning() throws Exception {
-
-        //String time = "2001-01-01 06:00:00";
-        //String time = "06:00:00.000";
-        //String time = "2001/01/01 06:00:00";
-/*        LocalDateTime localDateTime = LocalDateTime.parse(time, formatter);
-        LocalTime now = localDateTime.toLocalTime();*/
-        //LocalTime now = LocalTime.parse(time,DateTimeFormatter.ISO_LOCAL_TIME);
-            LocalTime now = LocalTime.of(4,0,0);
-
-        //assertEquals(GOOD_MORNING,Greeting.getGreeting(now));
-        assertEquals(GOOD_MORNING, Greeting.getGreeting(now));
-
+        assertEquals(GOOD_MORNING, Greeting.getGreeting(morning));
+        assertEquals(GOOD_DAY, Greeting.getGreeting(day));
+        assertEquals(GOOD_EVENING, Greeting.getGreeting(evening));
+        assertEquals(GOOD_NIGHT, Greeting.getGreeting(night));
     }
 }

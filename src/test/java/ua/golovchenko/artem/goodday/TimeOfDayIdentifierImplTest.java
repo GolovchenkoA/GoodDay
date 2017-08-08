@@ -63,5 +63,13 @@ public class TimeOfDayIdentifierImplTest {
         assertEquals(true, timeOfDayIdentifier.isNight(night));
     }
 
+    @Test
+    public void testGetTimeOfDayMorning(){
+        assertEquals(TimeOfDayIdentifier.TimeOfDay.MORINIG,timeOfDayIdentifier.getTimeOfDay(morning));
+        assertEquals(TimeOfDayIdentifier.TimeOfDay.DAY,timeOfDayIdentifier.getTimeOfDay(day));
+        assertEquals(TimeOfDayIdentifier.TimeOfDay.EVENING,timeOfDayIdentifier.getTimeOfDay(evening));
+        assertEquals(TimeOfDayIdentifier.TimeOfDay.NIGHT,timeOfDayIdentifier.getTimeOfDay(night));
+    }
+
 
 }
