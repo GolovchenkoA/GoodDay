@@ -14,10 +14,3 @@ before_install:
 
 script:
   - ./mvnw clean verify
-  - 'if [[ -n "$DECRYPT_KEYPHRASE" ]]; then openssl aes-256-cbc -d -pass "env:DECRYPT_KEYPHRASE" -in .gnupg.tar.enc | tar xv; fi'
-  - 'if [[ ${TRAVIS_TAG} != "" ]]; then ./mvnw versions:set -DnewVersion="${TRAVIS_TAG}"; fi'
-  - 'nvm install ${NODE_VERSION} && nvm use ${NODE_VERSION}'
-  - 'npm install -g yarn'
-
-after_success:
-- bash <(curl -s https://codecov.io/bash) -t repository-upload-token
