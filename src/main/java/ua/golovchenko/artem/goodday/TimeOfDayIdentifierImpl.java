@@ -12,26 +12,13 @@ public class TimeOfDayIdentifierImpl implements TimeOfDayIdentifier {
     private static final LocalTime DAY_BEGIN = LocalTime.of(9,0,0);;
     private static final LocalTime MORINIG_BEGIN = LocalTime.of(6,0,0);;
 
-
     @Override
     public Enum<TimeOfDay> getTimeOfDay(LocalTime time) {
         TimeOfDay timeOfDay = null;
-
-        if(isEvening(time)){
-            return timeOfDay.EVENING;
-        }
-
-        if(isDay(time)){
-            return timeOfDay.DAY;
-        }
-
-        if(isMorning(time)){
-            return timeOfDay.MORINIG;
-        }
-
-        if( isNight(time)){
-            timeOfDay = timeOfDay.NIGHT;
-        }
+        if(isEvening(time)){ return timeOfDay.EVENING;}
+        if(isDay(time)){return timeOfDay.DAY;}
+        if(isMorning(time)){return timeOfDay.MORINIG;}
+        if( isNight(time)){timeOfDay = timeOfDay.NIGHT;}
 
         return timeOfDay;
     }

@@ -6,9 +6,6 @@ import java.util.ResourceBundle;
 
 /**
  * Created by Artem on 08.08.2017.
- *
- *
- *
  */
 public class Greeting {
     private static ResourceBundle messages;
@@ -18,21 +15,17 @@ public class Greeting {
     private static final String GOOD_NIGHT = "good_night_world"; // в 23:00 - 06:00
     private static final String UNKNOWN_TIME_OF_THE_DAY = "Hello!"; // в 23:00 - 06:00
 
-
-
     /**
      * @return String
      *
      */
 
     public static String getGreeting(LocalTime curTime, Locale locale){
-
         if(locale == null){ //Default locale en_US
             locale = new Locale.Builder().setLanguage("en").setRegion("US").build();
         }
 
         messages = ResourceBundle.getBundle("message", locale);
-
         String msg = null;
 
         try{
@@ -54,27 +47,14 @@ public class Greeting {
         return msg;
     }
 
-
     private static TimeOfDayIdentifier.TimeOfDay getTimeOfDay(LocalTime now) throws NullPointerException{
         TimeOfDayIdentifier identifier = new TimeOfDayIdentifierImpl();
         TimeOfDayIdentifier.TimeOfDay timeOfDay = null;
 
-        if(identifier.isEvening(now)){
-            return timeOfDay.EVENING;
-        }
-
-
-        if((identifier.isDay(now))){
-            return timeOfDay.DAY;
-        }
-
-        if((identifier.isMorning(now))){
-            return timeOfDay.MORINIG;
-        }
-
-        if((identifier.isNight(now))){
-            timeOfDay = timeOfDay.NIGHT;
-        }
+        if(identifier.isEvening(now)){return timeOfDay.EVENING;}
+        if((identifier.isDay(now))){return timeOfDay.DAY;}
+        if((identifier.isMorning(now))){return timeOfDay.MORINIG;}
+        if((identifier.isNight(now))){timeOfDay = timeOfDay.NIGHT;}
 
         return timeOfDay;
     }
