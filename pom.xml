@@ -11,7 +11,7 @@
     <properties>
         <junit.version>4.12</junit.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <build-plugin.jacoco.version>0.7.7.201606060606</build-plugin.jacoco.version>
+        <build-plugin.jacoco.version>0.7.2.201409121644</build-plugin.jacoco.version>
         <build-plugin.coveralls.version>4.2.0</build-plugin.coveralls.version>
         <logback.version>1.2.3</logback.version>
         <slf4j-api.version>1.7.7</slf4j-api.version>
@@ -36,5 +36,31 @@
             <version>${slf4j-api.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${build-plugin.jacoco.version}</version>
+                <executions>
+                    <execution>
+                        <id>default-prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>
