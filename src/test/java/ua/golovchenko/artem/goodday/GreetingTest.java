@@ -42,6 +42,17 @@ public class GreetingTest {
     }
 
     @Test
+    public void testGoodMorningInEnglishByDefault() throws Exception {
+
+        assertEquals(GOOD_MORNING_EN, Greeting.getGreeting(morning, null));
+        assertEquals(GOOD_DAY_EN, Greeting.getGreeting(day, null));
+        assertEquals(GOOD_EVENING_EN, Greeting.getGreeting(evening,null));
+        assertEquals(GOOD_NIGHT_EN, Greeting.getGreeting(night, null));
+    }
+
+
+
+    @Test
     public void testGoodMorningInRussian() throws Exception {
 
         Locale locale_ru_RU = new Locale.Builder().setLanguage("ru").setRegion("RU").build();
