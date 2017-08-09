@@ -1,5 +1,8 @@
 package ua.golovchenko.artem.goodday;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.time.LocalTime;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -8,6 +11,7 @@ import java.util.ResourceBundle;
  * Created by Artem on 08.08.2017.
  */
 public class Greeting {
+    private static final Logger logger = LoggerFactory.getLogger(Greeting.class);
     private static ResourceBundle messages;
     private static final String GOOD_MORNING = "good_morning_world"; // в 06:00 - 09:00
     private static final String GOOD_DAY = "good_day_world"; // в 09:00 - 19:00
@@ -21,7 +25,10 @@ public class Greeting {
      */
 
     public static String getGreeting(LocalTime curTime, Locale locale){
+        logger.debug("Method call getGreeting(LocalTime {}, Locale {})", curTime, locale);
+
         if(locale == null){ //Default locale en_US
+            logger.debug("locale is null. Set defaul (en_US)");
             locale = new Locale.Builder().setLanguage("en").setRegion("US").build();
         }
 
@@ -40,7 +47,7 @@ public class Greeting {
 
             }
         }catch (NullPointerException e){
-
+            logger.info("Time of day undefined. Set default {}", e);
             msg = UNKNOWN_TIME_OF_THE_DAY;
         }
 
@@ -48,6 +55,8 @@ public class Greeting {
     }
 
     private static TimeOfDayIdentifier.TimeOfDay getTimeOfDay(LocalTime now) throws NullPointerException{
+        logger.debug("Method call getTimeOfDay(LocalTime {})", now);
+
         TimeOfDayIdentifier identifier = new TimeOfDayIdentifierImpl();
         TimeOfDayIdentifier.TimeOfDay timeOfDay = null;
 
