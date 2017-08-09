@@ -62,5 +62,4 @@ public class GreetingTest {
         assertEquals(GOOD_NIGHT_RU, Greeting.getGreeting(night, locale_ru_RU));
     }
 
-
 }

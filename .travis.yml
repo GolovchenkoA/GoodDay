@@ -14,3 +14,4 @@ before_install:
 
 script:
   - ./mvnw clean verify
+  - ./mvnw -Dtest=GreetingTestDataDrivenCSV test
