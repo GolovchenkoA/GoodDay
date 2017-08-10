@@ -1,12 +1,19 @@
 package ua.golovchenko.artem.goodday;
 
+import org.junit.Assert;
 import org.junit.Test;
+import ua.golovchenko.artem.goodday.utils.CSVUtils;
 
+import java.io.IOException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Locale;
 
 import static org.junit.Assert.*;
+
 
 public class GreetingTest {
 
@@ -32,7 +39,7 @@ public class GreetingTest {
 
 
     @Test
-    public void testGoodMorningInEnglish() throws Exception {
+    public void testGreetingInEnglish() throws Exception {
 
         Locale locale_en_US = new Locale.Builder().setLanguage("en").setRegion("US").build();
         assertEquals(GOOD_MORNING_EN, Greeting.getGreeting(morning, locale_en_US));
@@ -42,7 +49,7 @@ public class GreetingTest {
     }
 
     @Test
-    public void testGoodMorningInEnglishByDefault() throws Exception {
+    public void testGreetingInEnglishByDefault() throws Exception {
 
         assertEquals(GOOD_MORNING_EN, Greeting.getGreeting(morning, null));
         assertEquals(GOOD_DAY_EN, Greeting.getGreeting(day, null));
@@ -53,13 +60,30 @@ public class GreetingTest {
 
 
     @Test
-    public void testGoodMorningInRussian() throws Exception {
+    public void testGreetingInRussian() throws Exception {
 
         Locale locale_ru_RU = new Locale.Builder().setLanguage("ru").setRegion("RU").build();
         assertEquals(GOOD_MORNING_RU, Greeting.getGreeting(morning, locale_ru_RU));
         assertEquals(GOOD_DAY_RU, Greeting.getGreeting(day, locale_ru_RU));
         assertEquals(GOOD_EVENING_RU, Greeting.getGreeting(evening,locale_ru_RU));
         assertEquals(GOOD_NIGHT_RU, Greeting.getGreeting(night, locale_ru_RU));
+    }
+
+    @Test
+    public void testGetTestData() throws IOException {
+        String pathToFile = "src/test/resources/DateTimeOfDay.csv";
+        String[] row1 = new String[] {"0","0","0","NIGHT"};
+        String[] row2 = new String[] {"12","0","0","DAY"};
+        String[] row3 = new String[] {"8","0","0","MORNING"};
+        Collection<String[]> testData = new ArrayList<String[]>();
+        testData.add(row1);
+        testData.add(row2);
+        testData.add(row3);
+
+        Collection<String[]> dataFromFile = CSVUtils.getTestData(pathToFile);
+
+        Assert.assertTrue(dataFromFile.retainAll(testData));
+
     }
 
 }

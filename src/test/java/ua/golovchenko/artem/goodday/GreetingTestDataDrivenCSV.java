@@ -23,7 +23,7 @@ public class GreetingTestDataDrivenCSV {
 
     @Test
     public void testGetGreetingWithDataFromCSV() throws Exception {
-
+        logger.debug("Method call testGetGreetingWithDataFromCSV()");
 
         LocalTime time = null;
 
