@@ -17,17 +17,17 @@ import static org.junit.Assert.*;
 
 public class GreetingTest {
 
-    private static final String GOOD_MORNING_EN = "Good morning, World!"; // в 06:00 - 09:00
-    private static final String GOOD_DAY_EN = "Good day, World!"; // в 09:00 - 19:00
-    private static final String GOOD_EVENING_EN ="Good evening, World!"; // в 19:00 - 23:00
-    private static final String GOOD_NIGHT_EN = "Good night, World!"; // в 23:00 - 06:00
-    private static final String UNKNOWN_TIME_OF_THE_DAY_EN = "Hello!"; // в 23:00 - 06:00
+    private static final String GOOD_MORNING_EN = "Good morning, World!";
+    private static final String GOOD_DAY_EN = "Good day, World!";
+    private static final String GOOD_EVENING_EN ="Good evening, World!";
+    private static final String GOOD_NIGHT_EN = "Good night, World!";
+    private static final String UNKNOWN_TIME_OF_THE_DAY_EN = "Hello!";
 
-    private static final String GOOD_MORNING_RU = "Доброе утро, Мир!"; // в 06:00 - 09:00
-    private static final String GOOD_DAY_RU = "Добрый день, Мир!"; // в 09:00 - 19:00
-    private static final String GOOD_EVENING_RU ="Добрый вечер, Мир!"; // в 19:00 - 23:00
-    private static final String GOOD_NIGHT_RU = "Доброй ночи, Мир!"; // в 23:00 - 06:00
-    private static final String UNKNOWN_TIME_OF_THE_DAY_RU = "Здравствуйте"; // в 23:00 - 06:00
+    private static final String GOOD_MORNING_RU = "Доброе утро, Мир!";
+    private static final String GOOD_DAY_RU = "Добрый день, Мир!";
+    private static final String GOOD_EVENING_RU ="Добрый вечер, Мир!";
+    private static final String GOOD_NIGHT_RU = "Доброй ночи, Мир!";
+    private static final String UNKNOWN_TIME_OF_THE_DAY_RU = "Здравствуйте";
 
 
     private static final LocalTime morning = LocalTime.of(6,0,0);

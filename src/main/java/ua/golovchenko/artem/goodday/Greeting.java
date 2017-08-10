@@ -13,11 +13,11 @@ import java.util.ResourceBundle;
 public class Greeting {
     private static final Logger logger = LoggerFactory.getLogger(Greeting.class);
     private static ResourceBundle messages;
-    private static final String GOOD_MORNING = "good_morning_world"; // в 06:00 - 09:00
-    private static final String GOOD_DAY = "good_day_world"; // в 09:00 - 19:00
-    private static final String GOOD_EVENING ="good_evening_world"; // в 19:00 - 23:00
-    private static final String GOOD_NIGHT = "good_night_world"; // в 23:00 - 06:00
-    private static final String UNKNOWN_TIME_OF_THE_DAY = "Hello!"; // в 23:00 - 06:00
+    private static final String GOOD_MORNING = "good_morning_world";
+    private static final String GOOD_DAY = "good_day_world";
+    private static final String GOOD_EVENING ="good_evening_world";
+    private static final String GOOD_NIGHT = "good_night_world";
+    private static final String UNKNOWN_TIME_OF_THE_DAY = "Hello!";
 
     /**
      * @return String
